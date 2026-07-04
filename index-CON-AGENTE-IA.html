@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR Digital — Tu equipo completo de marketing y ventas por $100/mes</title>
+<meta name="description" content="Captación de leads, CRM, automatizaciones, funnels, landing pages y más. Nosotros hacemos todo por vos. Setup por $100. Soporte mensual por $100.">
+<meta property="og:title" content="MR Digital — Tu equipo completo de marketing y ventas">
+<meta property="og:description" content="Nosotros manejamos todo tu marketing y ventas. Vos solo ves los resultados.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#00E5A0;--green2:#00B87A;--gold:#F5C842;
+    --bg:#09090E;--bg2:#0D0D18;--card:#111120;
+    --border:rgba(0,229,160,0.12);--white:#FFFFFF;
+    --gray:#8888AA;--dgray:#333348;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes glow{0%,100%{box-shadow:0 0 28px rgba(0,229,160,.3)}50%{box-shadow:0 0 55px rgba(0,229,160,.65)}}
+  @keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+  .fade-up{animation:fadeUp .8s ease both}
+  .d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}
+
+  .orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+  section{position:relative;z-index:1}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  .sec{padding:110px 0}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 40px;
+    display:flex;justify-content:space-between;align-items:center;
+    background:rgba(9,9,14,.92);backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border)}
+
+  /* LOGO MR */
+  .logo-mark{display:flex;align-items:center;gap:14px;text-decoration:none}
+  .logo-hex{position:relative;width:46px;height:46px}
+  .logo-hex svg{width:46px;height:46px}
+  .logo-text{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;
+    letter-spacing:-0.5px;line-height:1}
+  .logo-text .mr{color:var(--green)}
+  .logo-text .digital{color:var(--white);font-size:13px;font-weight:500;
+    display:block;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
+
+  .nav-cta{background:var(--green);color:#001a0e;font-family:'Syne',sans-serif;
+    font-weight:700;font-size:14px;padding:10px 24px;border-radius:100px;
+    text-decoration:none;transition:all .2s;display:flex;align-items:center;gap:8px}
+  .nav-cta:hover{background:#00ffb3;transform:translateY(-1px)}
+  .nav-cta svg{flex-shrink:0}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;flex-direction:column;
+    justify-content:center;align-items:center;text-align:center;
+    padding:140px 24px 100px;overflow:hidden}
+  .hero-tag{display:inline-flex;align-items:center;gap:8px;
+    background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.25);
+    color:var(--green);font-size:13px;font-weight:500;
+    padding:8px 18px;border-radius:100px;margin-bottom:32px;letter-spacing:.5px}
+  .hero-tag span{width:6px;height:6px;background:var(--green);border-radius:50%;animation:float 2s ease infinite}
+  .hero h1{font-family:'Syne',sans-serif;font-size:clamp(42px,7vw,90px);
+    font-weight:800;line-height:1.0;letter-spacing:-2.5px;margin-bottom:28px;max-width:960px}
+  .hero h1 em{font-style:normal;
+    background:linear-gradient(135deg,var(--green),#00b8d4,var(--green));
+    background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    animation:shimmer 3s linear infinite}
+  .hero-sub{font-size:clamp(17px,2vw,22px);color:var(--gray);max-width:640px;
+    line-height:1.65;margin-bottom:48px;font-weight:300}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:56px}
+
+  .btn-green{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#001a0e;
+    font-family:'Syne',sans-serif;font-weight:800;font-size:17px;padding:18px 42px;
+    border-radius:16px;text-decoration:none;transition:all .25s;animation:glow 3s ease infinite}
+  .btn-green:hover{background:#00ffb3;transform:translateY(-3px)}
+  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;
+    color:var(--white);font-family:'Syne',sans-serif;font-weight:600;font-size:16px;
+    padding:18px 32px;border-radius:16px;text-decoration:none;transition:all .25s;
+    border:1px solid var(--border)}
+  .btn-ghost:hover{border-color:rgba(0,229,160,.4);background:rgba(0,229,160,.05)}
+
+  /* WhatsApp float button */
+  .wa-float{position:fixed;bottom:32px;left:32px;z-index:200;
+    width:60px;height:60px;background:#25D366;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);
+    animation:pulse 2s ease infinite;transition:transform .2s}
+  .wa-float:hover{transform:scale(1.1)}
+  .wa-float svg{width:32px;height:32px;fill:white}
+
+  /* Aviso del agente de IA */
+  .ai-bubble{position:fixed;bottom:100px;right:20px;z-index:199;
+    max-width:230px;background:#0a0f0c;border:1px solid var(--border);
+    border-radius:14px 14px 4px 14px;padding:12px 14px;
+    box-shadow:0 8px 30px rgba(0,0,0,.5);
+    display:flex;gap:10px;align-items:flex-start;
+    opacity:0;transform:translateY(10px) scale(.96);
+    transition:opacity .4s ease,transform .4s ease;pointer-events:none}
+  .ai-bubble.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+  .ai-bubble-avatar{flex-shrink:0;width:34px;height:34px;border-radius:50%;
+    background:#08150f;border:1px solid rgba(0,229,160,.35);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 12px rgba(0,229,160,.25)}
+  .ai-bubble-avatar svg{width:22px;height:22px}
+  .robot-eye{animation:eyeglow 2.2s ease-in-out infinite}
+  @keyframes eyeglow{0%,100%{opacity:1}50%{opacity:.45}}
+  .ai-bubble-body{flex:1;min-width:0}
+  .ai-bubble-close{position:absolute;top:6px;right:8px;cursor:pointer;
+    color:var(--gray);font-size:13px;line-height:1;background:none;border:none}
+  .ai-bubble-close:hover{color:var(--white)}
+  .ai-bubble-title{font-family:'Syne',sans-serif;font-weight:800;font-size:12.5px;
+    color:var(--green);margin-bottom:3px}
+  .ai-bubble p{color:var(--white);font-size:12.5px;line-height:1.4;margin:0}
+  @media(max-width:640px){.ai-bubble{right:12px;bottom:88px;max-width:200px;padding:10px 12px}}
+
+  .hero-proof{display:flex;gap:36px;flex-wrap:wrap;justify-content:center;color:var(--gray);font-size:14px}
+  .hero-proof span{display:flex;align-items:center;gap:7px}
+  .check{color:var(--green);font-weight:700}
+
+  /* STATS */
+  .stats-bar{background:var(--bg2);border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);padding:48px 24px}
+  .stats-inner{max-width:900px;margin:0 auto;display:grid;
+    grid-template-columns:repeat(3,1fr);text-align:center}
+  .stat{padding:0 20px;border-right:1px solid var(--border)}
+  .stat:last-child{border-right:none}
+  .stat-num{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,56px);
+    font-weight:800;color:var(--green);line-height:1;margin-bottom:8px}
+  .stat-label{color:var(--gray);font-size:15px;line-height:1.4}
+
+  .s-tag{display:inline-block;font-size:12px;font-weight:600;padding:6px 16px;
+    border-radius:100px;margin-bottom:22px;letter-spacing:1.5px;text-transform:uppercase}
+  .s-tag.red{background:rgba(255,100,100,.1);border:1px solid rgba(255,100,100,.25);color:#ff8888}
+  .s-tag.green{background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.25);color:var(--green)}
+  .s-tag.gold{background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.25);color:var(--gold)}
+  .s-tag.blue{background:rgba(136,153,255,.08);border:1px solid rgba(136,153,255,.25);color:#8899ff}
+  .s-h{font-family:'Syne',sans-serif;font-size:clamp(32px,4.5vw,58px);
+    font-weight:800;line-height:1.08;letter-spacing:-1.5px;margin-bottom:16px}
+  .s-sub{color:var(--gray);font-size:18px;line-height:1.65;margin-bottom:52px;max-width:620px}
+
+  /* PROBLEMA */
+  .prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .prob-card{background:rgba(28,14,14,.7);border:1px solid rgba(255,100,100,.12);
+    border-left:3px solid rgba(255,100,100,.5);border-radius:20px;padding:28px 30px;transition:all .3s}
+  .prob-card:hover{border-left-color:#ff6464;transform:translateX(4px)}
+  .prob-card h4{font-family:'Syne',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px}
+  .prob-card p{color:var(--gray);font-size:15px;line-height:1.6}
+  .prob-close{margin-top:28px;background:rgba(40,14,14,.8);border:1px solid rgba(255,100,100,.3);
+    border-radius:16px;padding:22px 32px;text-align:center;
+    color:rgba(255,180,180,.9);font-size:20px;font-weight:600}
+
+  /* SERVICIOS */
+  .serv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .serv-card{background:var(--card);border:1px solid var(--border);border-radius:20px;
+    padding:32px 28px;transition:all .3s;position:relative;overflow:hidden}
+  .serv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0;transition:opacity .3s}
+  .serv-card:hover{border-color:rgba(0,229,160,.3);transform:translateY(-4px)}
+  .serv-card:hover::before{opacity:1}
+  .serv-icon{width:52px;height:52px;border-radius:14px;background:rgba(0,229,160,.1);
+    border:1px solid rgba(0,229,160,.2);display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--green)}
+  .serv-card h4{font-family:'Syne',sans-serif;font-weight:700;font-size:19px;margin-bottom:10px}
+  .serv-card p{color:var(--gray);font-size:15px;line-height:1.65}
+
+  /* RESULTADOS */
+  .result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .result-card{background:linear-gradient(135deg,rgba(0,35,24,.8),rgba(0,20,14,.8));
+    border:1px solid rgba(0,229,160,.2);border-radius:20px;padding:32px 28px;text-align:center;transition:all .3s}
+  .result-card:hover{transform:translateY(-4px);border-color:rgba(0,229,160,.4)}
+  .result-num{font-family:'Syne',sans-serif;font-size:clamp(40px,5vw,64px);
+    font-weight:800;color:var(--green);line-height:1;margin-bottom:12px}
+  .result-card h4{font-family:'Syne',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px}
+  .result-card p{color:var(--gray);font-size:14px;line-height:1.6}
+
+  /* NICHOS */
+  .nichos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+  .nicho{background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:20px 16px;text-align:center;transition:all .3s}
+  .nicho:hover{border-color:rgba(0,229,160,.3);transform:translateY(-3px)}
+  .nicho-icon{font-size:28px;margin-bottom:10px}
+  .nicho p{font-family:'Syne',sans-serif;font-weight:600;font-size:14px;color:var(--white)}
+
+  /* PROCESO */
+  .proceso-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0}
+  .paso{padding:32px 28px;text-align:center;position:relative}
+  .paso:not(:last-child)::after{content:'→';position:absolute;right:-10px;top:44%;
+    transform:translateY(-50%);color:var(--green);font-size:24px;font-weight:700}
+  .paso-num{width:56px;height:56px;border-radius:50%;background:rgba(0,229,160,.1);
+    border:2px solid var(--green);display:flex;align-items:center;justify-content:center;
+    margin:0 auto 20px;font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--green)}
+  .paso h4{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;margin-bottom:8px}
+  .paso p{color:var(--gray);font-size:14px;line-height:1.6}
+
+  /* PRECIO */
+  .precio-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:32px}
+  .precio-card{border-radius:24px;padding:44px 36px;text-align:center}
+  .precio-card.setup{background:rgba(14,22,18,.9);border:1.5px solid rgba(0,229,160,.3)}
+  .precio-card.monthly{background:linear-gradient(135deg,rgba(0,40,28,.95),rgba(0,20,14,.95));
+    border:2px solid var(--green)}
+  .precio-badge{display:inline-block;background:var(--green);color:#001a0e;
+    font-family:'Syne',sans-serif;font-weight:800;font-size:12px;
+    padding:4px 14px;border-radius:100px;margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
+  .precio-num{font-family:'Syne',sans-serif;font-size:clamp(56px,7vw,88px);
+    font-weight:800;color:var(--green);line-height:1;letter-spacing:-2px}
+  .precio-per{color:var(--gray);font-size:18px;margin-bottom:20px}
+  .precio-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;margin-bottom:12px}
+  .precio-card p{color:var(--gray);font-size:15px;line-height:1.65;margin-bottom:24px}
+  .precio-list{list-style:none;text-align:left;display:flex;flex-direction:column;gap:10px}
+  .precio-list li{color:var(--white);font-size:15px;padding-left:22px;position:relative}
+  .precio-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+
+  /* QUIÉNES SOMOS */
+  .nosotros-wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  .nosotros-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .nos-stat{background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:24px 20px;text-align:center}
+  .nos-num{font-family:'Syne',sans-serif;font-size:40px;font-weight:800;
+    color:var(--green);line-height:1;margin-bottom:6px}
+  .nos-label{color:var(--gray);font-size:13px;line-height:1.4}
+  .nosotros-text p{color:var(--gray);font-size:17px;line-height:1.75;margin-bottom:20px}
+  .nos-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .nos-tag{background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.2);
+    color:var(--green);font-size:13px;padding:6px 16px;border-radius:100px;font-weight:500}
+
+  /* CTA FINAL */
+  .cta-sec{padding:120px 24px 140px;text-align:center;
+    background:radial-gradient(ellipse at 50% 50%,rgba(0,180,120,.1) 0%,transparent 70%)}
+  .cta-inner{max-width:760px;margin:0 auto}
+  .cta-sec h2{font-family:'Syne',sans-serif;font-size:clamp(40px,6vw,76px);
+    font-weight:800;line-height:1.0;letter-spacing:-2px;margin-bottom:20px}
+  .cta-sec h2 span{color:var(--green)}
+  .cta-sec>div>p{color:var(--gray);font-size:18px;margin-bottom:44px;line-height:1.6}
+  .cta-price{display:inline-block;background:rgba(0,229,160,.06);
+    border:1px solid rgba(0,229,160,.2);border-radius:14px;padding:16px 32px;
+    color:var(--green);font-size:16px;margin-bottom:40px}
+  .cta-price strong{font-family:'Syne',sans-serif;font-size:20px}
+  .cta-btns{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .btn-huge{display:inline-flex;align-items:center;gap:12px;background:var(--green);color:#001a0e;
+    font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(18px,2.5vw,24px);
+    padding:24px 60px;border-radius:20px;text-decoration:none;transition:all .25s;
+    animation:glow 3s ease infinite}
+  .btn-huge:hover{background:#00ffb3;transform:translateY(-4px)}
+  .btn-wa{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;
+    font-family:'Syne',sans-serif;font-weight:700;font-size:18px;
+    padding:16px 40px;border-radius:16px;text-decoration:none;transition:all .25s}
+  .btn-wa:hover{background:#1db954;transform:translateY(-2px)}
+  .cta-dm{color:var(--dgray);font-size:15px}
+  .cta-dm a{color:var(--gray);text-decoration:underline;text-underline-offset:3px}
+
+  footer{border-top:1px solid var(--border);padding:28px 40px;
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:16px;color:var(--dgray);font-size:14px}
+  .foot-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--green)}
+
+  .social-icons{display:flex;gap:14px;align-items:center}
+  .social-icons a{display:flex;align-items:center;justify-content:center;
+    width:36px;height:36px;border-radius:10px;border:1px solid var(--border);
+    color:var(--gray);transition:all .25s}
+  .social-icons a:hover{color:#001a0e;background:var(--green);border-color:var(--green);transform:translateY(-2px)}
+  .social-icons a svg{width:18px;height:18px;fill:currentColor}
+
+  .nav-social{display:flex;gap:10px;align-items:center;margin-right:14px}
+  .nav-social a{display:flex;align-items:center;justify-content:center;
+    width:32px;height:32px;border-radius:8px;color:var(--gray);transition:all .25s}
+  .nav-social a:hover{color:var(--green)}
+  .nav-social a svg{width:17px;height:17px;fill:currentColor}
+  @media(max-width:640px){.nav-social{display:none}}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media(max-width:768px){
+    nav{padding:14px 18px}
+    .stats-inner{grid-template-columns:1fr;gap:28px}
+    .stat{border-right:none;border-bottom:1px solid var(--border);padding-bottom:24px}
+    .stat:last-child{border-bottom:none}
+    .precio-wrap{grid-template-columns:1fr}
+    .proceso-grid{grid-template-columns:1fr}
+    .paso:not(:last-child)::after{display:none}
+    .nosotros-wrap{grid-template-columns:1fr;gap:40px}
+    footer{justify-content:center;text-align:center}
+    .wa-float{bottom:20px;left:20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/19293134677" target="_blank" class="wa-float" title="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- Aviso del agente de IA -->
+<div class="ai-bubble" id="aiBubble">
+  <button class="ai-bubble-close" id="aiBubbleClose" aria-label="Cerrar">✕</button>
+  <div class="ai-bubble-avatar">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="12" y1="2.2" x2="12" y2="5" stroke="#00E5A0" stroke-width="1.3" stroke-linecap="round"/>
+      <circle cx="12" cy="1.8" r="1.1" fill="#00E5A0" class="robot-eye"/>
+      <rect x="4.5" y="5" width="15" height="13" rx="4.5" stroke="#00E5A0" stroke-width="1.3"/>
+      <circle cx="9" cy="11.3" r="1.5" fill="#00E5A0" class="robot-eye"/>
+      <circle cx="15" cy="11.3" r="1.5" fill="#00E5A0" class="robot-eye"/>
+      <rect x="8.3" y="14.7" width="7.4" height="1.8" rx="0.9" fill="#00E5A0" opacity=".8"/>
+      <line x1="1.8" y1="10" x2="4.5" y2="10" stroke="#00E5A0" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="19.5" y1="10" x2="22.2" y2="10" stroke="#00E5A0" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="ai-bubble-body">
+    <div class="ai-bubble-title">MR Digital</div>
+    <p>Soy el agente IA de MR Digital, ¿tenés dudas?</p>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo-mark">
+    <div class="logo-hex">
+      <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="23,2 42,12.5 42,33.5 23,44 4,33.5 4,12.5" fill="rgba(0,35,24,0.9)" stroke="#00E5A0" stroke-width="2"/>
+        <polygon points="23,6 38,14.5 38,31.5 23,40 8,31.5 8,14.5" fill="none" stroke="rgba(0,229,160,0.3)" stroke-width="1"/>
+        <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#00E5A0" font-family="'Syne',sans-serif" font-weight="800" font-size="16">MR</text>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="mr">MR Digital</span>
+      <span class="digital">Marketing · Ventas · Tech</span>
+    </div>
+  </a>
+  <div style="display:flex;align-items:center">
+    <div class="nav-social">
+      <a href="https://instagram.com/miguelalerta" target="_blank" rel="noopener" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/miguel-romero-41a07b267" target="_blank" rel="noopener" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11.001-4.124 2.062 2.062 0 01-.001 4.124zM7.114 20.452H3.559V9h3.555v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+    <a href="https://wa.me/19293134677" target="_blank" class="nav-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#001a0e"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribinos ahora
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="orb" style="width:600px;height:600px;background:rgba(0,180,120,.11);top:-180px;right:-120px"></div>
+  <div class="orb" style="width:400px;height:400px;background:rgba(245,200,66,.06);bottom:80px;left:-80px"></div>
+
+  <div class="hero-tag fade-up"><span></span> Para negocios que quieren crecer de verdad</div>
+  <h1 class="fade-up d1">Nos encargamos de todo<br>tu marketing y ventas.<br><em>Vos solo ves los resultados.</em></h1>
+  <p class="hero-sub fade-up d2">Captación de leads, automatizaciones, funnels, CRM, landing pages y más — todo gestionado por nosotros. Sin depender de múltiples agencias. Solo resultados.</p>
+  <div class="hero-btns fade-up d3">
+    <a href="https://wa.me/19293134677" target="_blank" class="btn-green">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#001a0e"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Empezá hoy por $100
+    </a>
+    <a href="#servicios" class="btn-ghost">Ver qué incluye ↓</a>
+  </div>
+  <div class="hero-proof fade-up d4">
+    <span><span class="check">✓</span> Setup completo desde $100</span>
+    <span><span class="check">✓</span> Soporte mensual incluido</span>
+    <span><span class="check">✓</span> Sin contratos largos</span>
+    <span><span class="check">✓</span> Todo en un solo lugar</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar reveal">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">nos encargamos nosotros<br>vos solo ves crecer tu negocio</div></div>
+    <div class="stat"><div class="stat-num">$100</div><div class="stat-label">setup inicial completo<br>+ $100/mes soporte</div></div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-label">solo un proveedor para todo<br>sin agencias separadas</div></div>
+  </div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="sec">
+  <div class="wrap">
+    <div class="s-tag red reveal">El problema de hoy</div>
+    <h2 class="s-h reveal">¿Te identificás con<br>alguna de estas situaciones?</h2>
+    <p class="s-sub reveal">La mayoría de los negocios en Latinoamérica tienen el mismo problema.</p>
+    <div class="prob-grid reveal">
+      <div class="prob-card"><h4>Perdés leads por falta de seguimiento</h4><p>Alguien se interesa en tu negocio, no recibe respuesta a tiempo y se va a la competencia.</p></div>
+      <div class="prob-card"><h4>Dependés de múltiples proveedores</h4><p>Una agencia para redes, otra para el sitio, otra para email. Todo desconectado y costoso.</p></div>
+      <div class="prob-card"><h4>No tenés sistema de ventas</h4><p>Los clientes entran por recomendación o suerte, no por un proceso que funcione solo.</p></div>
+      <div class="prob-card"><h4>Tu equipo hace tareas manuales</h4><p>Responder mensajes, recordar turnos, enviar información — todo a mano, todos los días.</p></div>
+      <div class="prob-card"><h4>No sabés cuántos leads tenés</h4><p>Sin un CRM ordenado, los potenciales clientes se pierden entre mensajes, email y notas.</p></div>
+      <div class="prob-card"><h4>Tu negocio depende de vos</h4><p>Si vos no estás, el negocio se frena. No hay sistema que lo sostenga solo.</p></div>
+    </div>
+    <div class="prob-close reveal">Todo eso tiene solución. Y nosotros nos encargamos de todo.</div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="sec" style="padding-top:0" id="servicios">
+  <div class="wrap">
+    <div class="s-tag green reveal">Lo que hacemos por vos</div>
+    <h2 class="s-h reveal">Todo lo que tu negocio<br><span style="color:var(--green)">necesita para crecer.</span></h2>
+    <p class="s-sub reveal">Nosotros configuramos, gestionamos y optimizamos todo. Vos te enfocás en atender a tus clientes.</p>
+    <div class="serv-grid reveal">
+      <div class="serv-card"><div class="serv-icon">+</div><h4>Captación de leads</h4><p>Creamos el sistema para que los potenciales clientes lleguen solos a vos — automatizado y activo las 24 horas.</p></div>
+      <div class="serv-card"><div class="serv-icon">C</div><h4>CRM y gestión de clientes</h4><p>Ordenamos todos tus leads en un solo lugar. Sabés exactamente en qué etapa está cada potencial cliente.</p></div>
+      <div class="serv-card"><div class="serv-icon">A</div><h4>Automatizaciones</h4><p>Mensajes de bienvenida, recordatorios y seguimientos automáticos — sin que tu equipo haga nada manual.</p></div>
+      <div class="serv-card"><div class="serv-icon">F</div><h4>Funnels de venta</h4><p>Diseñamos el embudo completo para que cada visita tenga más chances de convertirse en cliente.</p></div>
+      <div class="serv-card"><div class="serv-icon">L</div><h4>Landing pages</h4><p>Páginas de captura profesionales y optimizadas para convertir. Listas en días, no en semanas.</p></div>
+      <div class="serv-card"><div class="serv-icon">W</div><h4>Sitio web profesional</h4><p>Tu presencia digital completa — diseño moderno, rápido y pensado para generar confianza y ventas.</p></div>
+      <div class="serv-card"><div class="serv-icon">T</div><h4>Tienda online</h4><p>Si vendés productos, armamos tu e-commerce completo listo para recibir pedidos desde el primer día.</p></div>
+      <div class="serv-card"><div class="serv-icon">P</div><h4>Pipeline de ventas</h4><p>Visualizás en tiempo real cuántos leads tenés, en qué etapa están y cuánto dinero hay en tu pipeline.</p></div>
+      <div class="serv-card"><div class="serv-icon">S</div><h4>Soporte y optimización continua</h4><p>Cada mes revisamos, ajustamos y mejoramos todo lo implementado. Tu sistema siempre optimizado.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="s-tag green reveal">Lo que lográs con nosotros</div>
+    <h2 class="s-h reveal">Resultados reales<br><span style="color:var(--green)">desde el primer mes.</span></h2>
+    <div class="result-grid reveal">
+      <div class="result-card"><div class="result-num">10X</div><h4>Más leads capturados</h4><p>Sistema automático que trabaja 24/7 captando potenciales clientes mientras vos te enfocás en tu negocio.</p></div>
+      <div class="result-card"><div class="result-num">0</div><h4>Leads perdidos</h4><p>Cada consulta recibe respuesta inmediata. Ningún potencial cliente se pierde por falta de atención.</p></div>
+      <div class="result-card"><div class="result-num">100%</div><h4>Enfocado en tu negocio</h4><p>Nosotros manejamos el marketing y las ventas. Vos atendés a tus clientes y hacés crecer tu negocio.</p></div>
+      <div class="result-card"><div class="result-num">1</div><h4>Solo un proveedor</h4><p>Nada de múltiples agencias. Todo centralizado con nosotros. Simple, ordenado y eficiente.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NICHOS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="s-tag green reveal">¿Para quién es?</div>
+    <h2 class="s-h reveal">Trabajamos con cualquier<br><span style="color:var(--green)">negocio que quiera crecer.</span></h2>
+    <p class="s-sub reveal">Si tenés clientes, leads o ventas — tenemos la solución para vos.</p>
+    <div class="nichos-grid reveal">
+      <div class="nicho"><div class="nicho-icon">🏥</div><p>Clínicas y consultorios</p></div>
+      <div class="nicho"><div class="nicho-icon">🏡</div><p>Inmobiliarias</p></div>
+      <div class="nicho"><div class="nicho-icon">💆</div><p>Estética y bienestar</p></div>
+      <div class="nicho"><div class="nicho-icon">🏋️</div><p>Gimnasios</p></div>
+      <div class="nicho"><div class="nicho-icon">🛍️</div><p>Tiendas online</p></div>
+      <div class="nicho"><div class="nicho-icon">📚</div><p>Coaches y consultores</p></div>
+      <div class="nicho"><div class="nicho-icon">🍽️</div><p>Restaurantes</p></div>
+      <div class="nicho"><div class="nicho-icon">📱</div><p>Agencias digitales</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="s-tag green reveal">Cómo funciona</div>
+    <h2 class="s-h reveal">Empezás a ver resultados<br><span style="color:var(--green)">en menos de 7 días.</span></h2>
+    <div class="proceso-grid reveal">
+      <div class="paso"><div class="paso-num">1</div><h4>Nos contactás</h4><p>Hablamos de tu negocio y entendemos exactamente qué necesitás para crecer.</p></div>
+      <div class="paso"><div class="paso-num">2</div><h4>Diseñamos tu sistema</h4><p>Armamos todo — CRM, automatizaciones, funnels y más — en menos de 7 días.</p></div>
+      <div class="paso"><div class="paso-num">3</div><h4>Tu negocio trabaja solo</h4><p>El sistema capta, filtra y convierte leads automáticamente sin intervención manual.</p></div>
+      <div class="paso"><div class="paso-num">4</div><h4>Vos ves los resultados</h4><p>Más clientes, menos caos, todo ordenado. Nosotros seguimos optimizando cada mes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section class="sec" style="padding-top:0" id="precio">
+  <div class="wrap">
+    <div class="s-tag gold reveal">Inversión</div>
+    <h2 class="s-h reveal">Un precio que no<br><span style="color:var(--gold)">podés rechazar.</span></h2>
+    <p class="s-sub reveal">Por todo lo que incluye, es la inversión más inteligente para tu negocio.</p>
+    <div class="precio-wrap reveal">
+      <div class="precio-card setup">
+        <div class="precio-badge">Una sola vez</div>
+        <div class="precio-num">$100</div>
+        <div class="precio-per">setup inicial completo</div>
+        <h3>Todo configurado y listo</h3>
+        <p>Implementamos todo el sistema desde cero para tu negocio.</p>
+        <ul class="precio-list">
+          <li>CRM configurado con tu negocio</li>
+          <li>Automatizaciones activas</li>
+          <li>Funnels y landing pages</li>
+          <li>Pipeline de ventas</li>
+          <li>Sitio web o tienda online</li>
+          <li>Sistema de captación de leads</li>
+        </ul>
+      </div>
+      <div class="precio-card monthly">
+        <div class="precio-badge">Mensual</div>
+        <div class="precio-num">$100</div>
+        <div class="precio-per">por mes — soporte continuo</div>
+        <h3>Tu sistema siempre al día</h3>
+        <p>Cada mes revisamos, ajustamos y mejoramos todo lo que necesités.</p>
+        <ul class="precio-list">
+          <li>Soporte prioritario</li>
+          <li>Cambios y actualizaciones</li>
+          <li>Nuevas automatizaciones</li>
+          <li>Reportes de resultados</li>
+          <li>Optimización continua</li>
+          <li>Asesoramiento estratégico</li>
+        </ul>
+      </div>
+    </div>
+    <div style="background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.2);border-radius:16px;padding:24px 32px;text-align:center" class="reveal">
+      <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:20px;color:var(--green)">
+        Setup $100 + $100/mes. Sin contratos largos. Sin sorpresas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="nosotros-wrap">
+      <div class="nosotros-text reveal">
+        <div class="s-tag blue" style="margin-bottom:22px">Quiénes somos</div>
+        <h2 class="s-h">MR Digital.<br><span style="color:var(--green)">Expertos en hacer<br>crecer negocios.</span></h2>
+        <p>Somos un equipo de profesionales especializados en marketing digital, automatización y ventas con experiencia trabajando en mercados de Latinoamérica y Estados Unidos.</p>
+        <p>Nuestro enfoque es simple: implementamos los sistemas más avanzados del mercado para que cada negocio pueda competir al máximo nivel — sin importar su tamaño.</p>
+        <p>No somos una agencia tradicional. Somos tu equipo externo de marketing y ventas, comprometido con tus resultados desde el primer día.</p>
+        <div class="nos-tags">
+          <span class="nos-tag">Marketing Digital</span>
+          <span class="nos-tag">Automatización</span>
+          <span class="nos-tag">CRM</span>
+          <span class="nos-tag">Funnels</span>
+          <span class="nos-tag">Latinoamérica</span>
+          <span class="nos-tag">Experiencia Internacional</span>
+        </div>
+      </div>
+      <div class="nosotros-stats reveal">
+        <div class="nos-stat"><div class="nos-num">100%</div><div class="nos-label">Enfoque en resultados medibles</div></div>
+        <div class="nos-stat"><div class="nos-num">7</div><div class="nos-label">Días para tener tu sistema activo</div></div>
+        <div class="nos-stat"><div class="nos-num">LATAM</div><div class="nos-label">Experiencia en mercados de toda Latinoamérica</div></div>
+        <div class="nos-stat"><div class="nos-num">24/7</div><div class="nos-label">Tu sistema trabajando sin parar</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-sec" id="contacto">
+  <div class="cta-inner">
+    <h2 class="reveal">Tu negocio merece<br>crecer de verdad.<br><span>Empezá hoy.</span></h2>
+    <div><p class="reveal">Nos encargamos de todo. Vos solo te enfocás en lo que sabés hacer mejor.</p></div>
+    <div class="cta-price reveal"><strong>Setup $100 + $100/mes</strong> — Todo incluido. Sin sorpresas.</div>
+    <div class="cta-btns reveal">
+      <a href="https://wa.me/19293134677" target="_blank" class="btn-huge">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#001a0e"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quiero empezar ahora
+      </a>
+      <div class="cta-dm">¿Preferís escribir? <a href="https://wa.me/19293134677" target="_blank">+1 (929) 313-4677</a> — Respondemos rápido.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">MR Digital</div>
+  <div>Marketing · Ventas · Automatización · Latinoamérica</div>
+  <div class="social-icons">
+    <a href="https://instagram.com/miguelalerta" target="_blank" rel="noopener" title="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="https://linkedin.com/in/miguel-romero-41a07b267" target="_blank" rel="noopener" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11.001-4.124 2.062 2.062 0 01-.001 4.124zM7.114 20.452H3.559V9h3.555v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </div>
+  <div><a href="https://wa.me/19293134677" target="_blank" style="color:var(--green);text-decoration:none">+1 (929) 313-4677</a></div>
+</footer>
+
+<script>
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*55)});
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // Aviso del agente de IA
+  const aiBubble=document.getElementById('aiBubble');
+  const aiBubbleClose=document.getElementById('aiBubbleClose');
+  if(aiBubble && !sessionStorage.getItem('aiBubbleClosed')){
+    setTimeout(()=>aiBubble.classList.add('show'),3000);
+  }
+  if(aiBubbleClose){
+    aiBubbleClose.addEventListener('click',()=>{
+      aiBubble.classList.remove('show');
+      sessionStorage.setItem('aiBubbleClosed','1');
+    });
+  }
+</script>
+
+<!-- Agente de IA -->
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a483f97c4ca16b4ab93943c"></script>
+</body>
+</html>
